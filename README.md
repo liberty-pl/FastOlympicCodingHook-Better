@@ -35,23 +35,11 @@ After installing, click the extension icon → Settings → Set **Port** to `123
 
 ## Install This Plugin
 
-### Linux
-```bash
-cd ~/.config/sublime-text/Packages/
-git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
-```
+Clone this repository into Sublime Text's `Packages` directory:
 
-### macOS
-```bash
-cd ~/Library/Application\ Support/Sublime\ Text/Packages/
-git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
-```
-
-### Windows
-```powershell
-cd "$env:APPDATA\Sublime Text\Packages"
-git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
-```
+- Linux: `~/.config/sublime-text/Packages/`
+- macOS: `~/Library/Application Support/Sublime Text/Packages/`
+- Windows: `%APPDATA%\Sublime Text\Packages\`
 
 **Restart Sublime Text.**
 
