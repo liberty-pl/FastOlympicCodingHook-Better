@@ -186,9 +186,7 @@ int main() {
 
 ## 快捷键
 
-CppFastOlympicCoding 默认的运行快捷键是 `Ctrl+Alt+B`。本插件的用户配置中将其改为 `F5`，此外还增设了 `F1` 用于重新绑定监听目录。
-
-如果你也想用 `F5` 运行测试，创建 `Packages/User/Default (Linux).sublime-keymap`（macOS 用户改为 `Default (OSX).sublime-keymap`，Windows 改为 `Default (Windows).sublime-keymap`）：
+CppFastOlympicCoding 默认的运行快捷键是 `Ctrl+Alt+B`。如果你想用 `F5` 运行测试，打开 **Preferences → Key Bindings**，在右侧用户面板中粘贴：
 
 ```json
 [

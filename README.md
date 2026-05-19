@@ -186,7 +186,7 @@ The plugin starts listening automatically when Sublime Text launches. To stop it
 
 ## Key bindings
 
-The default run shortcut in CppFastOlympicCoding is `Ctrl+Alt+B`. To use `F5` instead, create `Packages/User/Default (Linux).sublime-keymap` (use `Default (OSX).sublime-keymap` on macOS, `Default (Windows).sublime-keymap` on Windows):
+The default run shortcut in CppFastOlympicCoding is `Ctrl+Alt+B`. To use `F5` instead, open **Preferences → Key Bindings** and paste into the right pane:
 
 ```json
 [
