@@ -1,5 +1,7 @@
 # FastOlympicCodingHook
 
+**Bring CPH-like experience to Sublime Text.**
+
 English | [简体中文](README.zh.md)
 
 ---
