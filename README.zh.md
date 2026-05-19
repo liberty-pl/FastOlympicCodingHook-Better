@@ -1,21 +1,6 @@
 # FastOlympicCodingHook
 
-**一键从浏览器爬取题目的样例到 Sublime Text，自动创建代码文件。**
-
-你正在刷题网站上看着一道题，想把样例拉到 Sublime 里跑一下 —— 正常情况下你要：
-
-1. 手动建一个 `.cpp` 文件
-2. 手写头文件和 main 函数（或者复制粘贴模板）
-3. 把样例输入复制到测试面板
-4. 把样例输出也填进去
-
-这个插件帮你省掉这些步骤。在浏览器点一下扩展按钮，自动完成：
-
-- 根据题目 ID 创建 `.cpp` 文件（如 `4A.cpp`）
-- 从模板填充代码（可选）
-- 把题目的样例自动填入测试面板
-
-[English version](README.md)
+[English](README.md) | 简体中文
 
 ---
 
@@ -71,7 +56,7 @@ git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
 
 ## 配置
 
-创建文件 `Packages/User/FastOlympicCoding.sublime-settings`，根据你的系统选择对应内容贴进去：
+在顶部Preference选项栏中打开Settings后，按需求进行以下配置
 
 <details>
 <summary><b>Linux / macOS 配置</b></summary>
@@ -85,7 +70,7 @@ git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
         {
             "name": "C++",
             "extensions": ["cpp"],
-            "compile_cmd": "g++ '{source_file}' -std=gnu++17 -o \"/tmp/{file_name}\"",
+            "compile_cmd": "g++ '{source_file}' -std=g++17 -o \"/tmp/{file_name}\"",
             "run_cmd": "/tmp/\"{file_name}\" {args} -debug",
             "lint_compile_cmd": "g++ -std=gnu++17 '{source_file}' -I '{source_file_dir}'"
         }
@@ -204,7 +189,6 @@ int main() {
 | 快捷键 | 功能 |
 |--------|------|
 | `F5` | 编译并运行当前测试 |
-| `F1` | 重新绑定监听目录（一般用不到，插件会自动跟随当前文件） |
 
 如果快捷键不生效，检查是否与其他插件冲突，或手动在 `Packages/User/Default (Linux).sublime-keymap` 中添加快捷键。
 

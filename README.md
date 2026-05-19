@@ -1,32 +1,6 @@
 # FastOlympicCodingHook
 
-**One-click fetch test cases from your browser to Sublime Text, with auto-generated code files.**
-
-Normally when you're on a problem page and want to run the samples locally:
-
-1. Create a `.cpp` file manually
-2. Write boilerplate (includes, main function, etc.)
-3. Copy sample input into the test panel
-4. Copy sample output too
-
-This plugin automates all of that. One click in your browser and it:
-
-- Creates a `.cpp` file named after the problem (e.g. `4A.cpp`)
-- Fills it from a template (optional)
-- Saves the sample tests directly into your test panel
-
-[中文版说明](README.zh.md)
-
----
-
-## Demo
-
-> After setup, your workflow becomes:
->
-> 1. Switch to your working directory in Sublime Text
-> 2. Open a problem in your browser
-> 3. Click the Competitive Companion extension
-> 4. Start coding — the `.cpp` file and test cases are ready
+English | [简体中文](README.zh.md)
 
 ---
 
@@ -82,7 +56,7 @@ git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
 
 ## Configuration
 
-Create `Packages/User/FastOlympicCoding.sublime-settings` and paste the config for your OS:
+Open Preferences → Settings, then paste the config for your OS:
 
 <details>
 <summary><b>Linux / macOS config</b></summary>
@@ -96,7 +70,7 @@ Create `Packages/User/FastOlympicCoding.sublime-settings` and paste the config f
         {
             "name": "C++",
             "extensions": ["cpp"],
-            "compile_cmd": "g++ '{source_file}' -std=gnu++17 -o \"/tmp/{file_name}\"",
+            "compile_cmd": "g++ '{source_file}' -std=g++17 -o \"/tmp/{file_name}\"",
             "run_cmd": "/tmp/\"{file_name}\" {args} -debug",
             "lint_compile_cmd": "g++ -std=gnu++17 '{source_file}' -I '{source_file_dir}'"
         }
@@ -128,11 +102,11 @@ Create `Packages/User/FastOlympicCoding.sublime-settings` and paste the config f
 
 ### Settings explained
 
-| Setting | What it does | Example |
+| Setting | What it does | Default |
 |---------|-------------|---------|
-| `tests_relative_dir` | Subdirectory where test files are saved | `"TESTCASE"` creates a `TESTCASE/` folder |
-| `tests_file_suffix` | Suffix appended to test files | `"__tests"` → `4A.cpp__tests` |
-| `template_file` | Path to your template file | Leave empty `""` for blank files |
+| `tests_relative_dir` | Subdirectory where test files are saved | `"TESTCASE"` |
+| `tests_file_suffix` | Suffix appended to test files | `"__tests"` |
+| `template_file` | Path to your template file | Empty = blank files |
 
 ### Optional: Use a template
 
@@ -159,7 +133,7 @@ Then set the path in your config:
 "template_file": "/home/yourname/template.cpp"
 ```
 
-The following variables are replaced with real data when a file is created:
+Available variables (replaced with real data when a file is created):
 
 | Variable | Replaced with |
 |----------|---------------|
@@ -215,7 +189,6 @@ The plugin starts listening automatically when Sublime Text launches. To stop it
 | Key | Action |
 |-----|--------|
 | `F5` | Compile and run current tests |
-| `F1` | Re-bind the listener directory (usually unnecessary — it follows your active file automatically) |
 
 If the shortcuts don't work, check for conflicts or add them manually to `Packages/User/Default (Linux).sublime-keymap`.
 
