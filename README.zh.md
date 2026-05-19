@@ -22,19 +22,19 @@
 ### Linux
 ```bash
 cd ~/.config/sublime-text/Packages/
-git clone https://github.com/你的用户名/FastOlympicCodingHook.git
+git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
 ```
 
 ### macOS
 ```bash
 cd ~/Library/Application\ Support/Sublime\ Text/Packages/
-git clone https://github.com/你的用户名/FastOlympicCodingHook.git
+git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
 ```
 
 ### Windows (PowerShell)
 ```powershell
 cd "$env:APPDATA\Sublime Text\Packages"
-git clone https://github.com/你的用户名/FastOlympicCodingHook.git
+git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
 ```
 
 重启 Sublime Text。
@@ -48,7 +48,7 @@ git clone https://github.com/你的用户名/FastOlympicCodingHook.git
 {
 	"tests_relative_dir": "TESTCASE",
 	"tests_file_suffix": "__tests",
-	"template_file": "/home/你的用户名/template.cpp",
+	"template_file": "/home/liberty-pl/template.cpp",
 	"run_settings": [
 		{
 			"name": "C++",
@@ -66,7 +66,7 @@ git clone https://github.com/你的用户名/FastOlympicCodingHook.git
 {
 	"tests_relative_dir": "TESTCASE",
 	"tests_file_suffix": "__tests",
-	"template_file": "C:\\Users\\你的用户名\\template.cpp",
+	"template_file": "C:\\Users\\liberty-pl\\template.cpp",
 	"run_settings": [
 		{
 			"name": "C++",

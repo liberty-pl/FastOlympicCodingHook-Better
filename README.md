@@ -24,19 +24,19 @@ Fork of [DrSwad/FastOlympicCodingHook](https://github.com/DrSwad/FastOlympicCodi
 ### Linux
 ```bash
 cd ~/.config/sublime-text/Packages/
-git clone https://github.com/YOUR_USERNAME/FastOlympicCodingHook.git
+git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
 ```
 
 ### macOS
 ```bash
 cd ~/Library/Application\ Support/Sublime\ Text/Packages/
-git clone https://github.com/YOUR_USERNAME/FastOlympicCodingHook.git
+git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
 ```
 
 ### Windows (PowerShell)
 ```powershell
 cd "$env:APPDATA\Sublime Text\Packages"
-git clone https://github.com/YOUR_USERNAME/FastOlympicCodingHook.git
+git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
 ```
 
 Restart Sublime Text after cloning.
