@@ -192,11 +192,6 @@ CppFastOlympicCoding 默认的运行快捷键是 `Ctrl+Alt+B`。如果你想用 
 [
     { "keys": ["f1"], "command": "fast_olympic_coding_hook" },
     { "keys": ["f5"], "command": "view_tester", "args": { "action": "make_opd", "use_debugger": false } },
-    { "keys": ["f5"], "command": "test_manager", "args": { "action": "make_opd", "load_session": true, "use_debugger": false },
-        "context": [
-            { "key": "selector", "operator": "equal", "operand": "source.TestSyntax", "match_all": true }
-        ]
-    },
 ]
 ```
 
