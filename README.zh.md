@@ -35,23 +35,11 @@
 
 ## 安装本插件
 
-### Linux
-```bash
-cd ~/.config/sublime-text/Packages/
-git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
-```
+请将本仓库克隆到 Sublime Text 的 `Packages` 目录：
 
-### macOS
-```bash
-cd ~/Library/Application\ Support/Sublime\ Text/Packages/
-git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
-```
-
-### Windows
-```powershell
-cd "$env:APPDATA\Sublime Text\Packages"
-git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
-```
+- Linux：`~/.config/sublime-text/Packages/`
+- macOS：`~/Library/Application Support/Sublime Text/Packages/`
+- Windows：`%APPDATA%\Sublime Text\Packages\`
 
 **重启 Sublime Text。**
 
@@ -155,6 +143,8 @@ int main() {
 ---
 
 ## 使用方法
+
+先把本仓库克隆到 Sublime 的插件目录（`Packages`）下，再按下面流程使用。
 
 > **与原版的区别：**
 > - 原版：需要先右键 → Listen to Competitive Companion → 再到浏览器点扩展 → 每次只接收一道题
