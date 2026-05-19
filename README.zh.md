@@ -204,11 +204,11 @@ CppFastOlympicCoding 默认的运行快捷键是 `Ctrl+Alt+B`。如果你想用 
 
 ```
 ~/CF/
-├── 4A.cpp              # 自动创建的代码文件
-├── 4B.cpp
+├── 1234A.cpp          # 自动创建的代码文件（比赛ID + 题目字母）
+├── 1234B.cpp
 ├── TESTCASE/
-│   ├── 4A.cpp__tests   # 自动保存的样例数据
-│   └── 4B.cpp__tests
+│   ├── 1234A.cpp__tests   # 自动保存的样例数据
+│   └── 1234B.cpp__tests
 ```
 
 ---

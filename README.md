@@ -204,11 +204,11 @@ The default run shortcut in CppFastOlympicCoding is `Ctrl+Alt+B`. To use `F5` in
 
 ```
 ~/CF/
-├── 4A.cpp              # Auto-generated code file
-├── 4B.cpp
+├── 1234A.cpp          # Auto-generated code file (contestId + problem letter)
+├── 1234B.cpp
 ├── TESTCASE/
-│   ├── 4A.cpp__tests   # Auto-saved test data
-│   └── 4B.cpp__tests
+│   ├── 1234A.cpp__tests   # Auto-saved test data
+│   └── 1234B.cpp__tests
 ```
 
 ---

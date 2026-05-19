@@ -17,19 +17,37 @@ def sanitize_filename(name):
 
 
 def extract_problem_id(data):
+    url = data.get("url", "")
+    contest_id = ""
+    m = re.search(r'/contest/(\d+)', url)
+    if m:
+        contest_id = m.group(1)
+    else:
+        m = re.search(r'/problemset/problem/(\d+)/', url)
+        if m:
+            contest_id = m.group(1)
+
     task_class = data.get("languages", {}).get("java", {}).get("taskClass", "")
     if task_class:
         m = re.match(r'Task(\w+)', task_class)
         if m:
             return m.group(1)
+
     name = data.get("name", "")
     m = re.match(r'^(\d+[A-Za-z]?)', name)
     if m:
         return m.group(1)
-    url = data.get("url", "")
-    m = re.search(r'/problem/(\w+)', url)
+
+    m = re.search(r'/problem/([A-Z]\d*)', url)
     if m:
-        return m.group(1)
+        prob = m.group(1)
+        if contest_id and re.match(r'^[A-Z]\d*$', prob) and len(prob) <= 2:
+            return contest_id + prob
+        return prob
+
+    if contest_id:
+        return contest_id
+
     return sanitize_filename(name)
 
 
