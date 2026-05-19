@@ -35,19 +35,19 @@
 ### Linux
 ```bash
 cd ~/.config/sublime-text/Packages/
-git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
+git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
 ```
 
 ### macOS
 ```bash
 cd ~/Library/Application\ Support/Sublime\ Text/Packages/
-git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
+git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
 ```
 
 ### Windows
 ```powershell
 cd "$env:APPDATA\Sublime Text\Packages"
-git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
+git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
 ```
 
 **重启 Sublime Text。**
