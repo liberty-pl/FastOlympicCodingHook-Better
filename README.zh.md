@@ -186,11 +186,21 @@ int main() {
 
 ## 快捷键
 
-| 快捷键 | 功能 |
-|--------|------|
-| `F5` | 编译并运行当前测试 |
+CppFastOlympicCoding 默认的运行快捷键是 `Ctrl+Alt+B`。本插件的用户配置中将其改为 `F5`，此外还增设了 `F1` 用于重新绑定监听目录。
 
-如果快捷键不生效，检查是否与其他插件冲突，或手动在 `Packages/User/Default (Linux).sublime-keymap` 中添加快捷键。
+如果你也想用 `F5` 运行测试，创建 `Packages/User/Default (Linux).sublime-keymap`（macOS 用户改为 `Default (OSX).sublime-keymap`，Windows 改为 `Default (Windows).sublime-keymap`）：
+
+```json
+[
+    { "keys": ["f1"], "command": "fast_olympic_coding_hook" },
+    { "keys": ["f5"], "command": "view_tester", "args": { "action": "make_opd", "use_debugger": false } },
+    { "keys": ["f5"], "command": "test_manager", "args": { "action": "make_opd", "load_session": true, "use_debugger": false },
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.TestSyntax", "match_all": true }
+        ]
+    },
+]
+```
 
 ---
 

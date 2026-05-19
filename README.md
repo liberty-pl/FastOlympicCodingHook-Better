@@ -186,11 +186,19 @@ The plugin starts listening automatically when Sublime Text launches. To stop it
 
 ## Key bindings
 
-| Key | Action |
-|-----|--------|
-| `F5` | Compile and run current tests |
+The default run shortcut in CppFastOlympicCoding is `Ctrl+Alt+B`. To use `F5` instead, create `Packages/User/Default (Linux).sublime-keymap` (use `Default (OSX).sublime-keymap` on macOS, `Default (Windows).sublime-keymap` on Windows):
 
-If the shortcuts don't work, check for conflicts or add them manually to `Packages/User/Default (Linux).sublime-keymap`.
+```json
+[
+    { "keys": ["f1"], "command": "fast_olympic_coding_hook" },
+    { "keys": ["f5"], "command": "view_tester", "args": { "action": "make_opd", "use_debugger": false } },
+    { "keys": ["f5"], "command": "test_manager", "args": { "action": "make_opd", "load_session": true, "use_debugger": false },
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.TestSyntax", "match_all": true }
+        ]
+    },
+]
+```
 
 ---
 
