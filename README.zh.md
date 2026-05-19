@@ -48,7 +48,7 @@ git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
 {
 	"tests_relative_dir": "TESTCASE",
 	"tests_file_suffix": "__tests",
-	"template_file": "/home/liberty-pl/template.cpp",
+	"template_file": "",
 	"run_settings": [
 		{
 			"name": "C++",
@@ -66,7 +66,7 @@ git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
 {
 	"tests_relative_dir": "TESTCASE",
 	"tests_file_suffix": "__tests",
-	"template_file": "C:\\Users\\liberty-pl\\template.cpp",
+	"template_file": "",
 	"run_settings": [
 		{
 			"name": "C++",
@@ -79,7 +79,7 @@ git clone https://github.com/liberty-pl/FastOlympicCodingHook.git
 }
 ```
 
-> **注意:** `template_file` 必须填写绝对路径。
+> **注意:** `template_file` 设为空则创建空白文件，设为绝对路径则使用自定义模板。
 
 ## 模板
 

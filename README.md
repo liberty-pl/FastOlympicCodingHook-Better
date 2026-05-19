@@ -50,7 +50,7 @@ Create `Packages/User/FastOlympicCoding.sublime-settings` with OS-appropriate se
 {
 	"tests_relative_dir": "TESTCASE",
 	"tests_file_suffix": "__tests",
-	"template_file": "/home/yourname/template.cpp",
+	"template_file": "",
 	"run_settings": [
 		{
 			"name": "C++",
@@ -68,7 +68,7 @@ Create `Packages/User/FastOlympicCoding.sublime-settings` with OS-appropriate se
 {
 	"tests_relative_dir": "TESTCASE",
 	"tests_file_suffix": "__tests",
-	"template_file": "C:\\Users\\yourname\\template.cpp",
+	"template_file": "",
 	"run_settings": [
 		{
 			"name": "C++",
@@ -81,7 +81,7 @@ Create `Packages/User/FastOlympicCoding.sublime-settings` with OS-appropriate se
 }
 ```
 
-> **Note:** `template_file` must point to an absolute path to your template file.
+> **Note:** Set `template_file` to an absolute path if you want to use a custom template. Leave it empty to create blank files.
 
 ## Template
 
