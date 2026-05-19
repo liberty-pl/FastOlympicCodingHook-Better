@@ -19,13 +19,11 @@ def sanitize_filename(name):
 def extract_problem_id(data):
     url = data.get("url", "")
     contest_id = ""
-    m = re.search(r'/contest/(\d+)', url)
-    if m:
-        contest_id = m.group(1)
-    else:
-        m = re.search(r'/problemset/problem/(\d+)/', url)
+    for pattern in [r'/contest/(\d+)', r'/gym/(\d+)', r'/problemset/problem/(\d+)/']:
+        m = re.search(pattern, url)
         if m:
             contest_id = m.group(1)
+            break
 
     task_class = data.get("languages", {}).get("java", {}).get("taskClass", "")
     if task_class:
