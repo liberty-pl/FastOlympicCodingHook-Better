@@ -58,7 +58,7 @@ git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
 
 ## 配置
 
-在顶部Preference选项栏中打开Settings后，按需求进行以下配置
+在顶部 **Preference** → **Settings** 中按需求配置：
 
 <details>
 <summary><b>Linux / macOS 配置</b></summary>
