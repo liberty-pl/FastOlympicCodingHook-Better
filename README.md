@@ -11,7 +11,6 @@ English | [简体中文](README.zh.md)
 | Dependency | Description |
 |------------|-------------|
 | **Sublime Text 3 or 4** | Your editor |
-| **Python 3** | Required to run the HTTP server (bundled with Sublime Text) |
 | **CppFastOlympicCoding** | Sublime plugin for running tests |
 | **Competitive Companion** | Browser extension that scrapes problem data |
 

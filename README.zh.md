@@ -11,7 +11,6 @@
 | 依赖 | 说明 |
 |------|------|
 | **Sublime Text 3 或 4** | 代码编辑器 |
-| **Python 3** | 运行 HTTP 服务器所需（Sublime Text 自带） |
 | **CppFastOlympicCoding** | Sublime 插件，用来管理和运行测试 |
 | **Competitive Companion** | 浏览器扩展，负责从题目页面抓取数据 |
 
