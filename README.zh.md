@@ -1,4 +1,4 @@
-# FastOlympicCodingHook
+# FastOlympicCodingHook-Better
 
 **在 Sublime Text 中获得 CPH 一样的体验。**
 
