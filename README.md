@@ -150,6 +150,10 @@ Available variables (replaced with real data when a file is created):
 
 ## Usage
 
+> **Difference from original:**
+> - Original: Right-click → Listen to Competitive Companion → click browser extension → single request, server shuts down
+> - This fork: Auto-listens on Sublime start, just click the browser extension directly, supports multiple problems in a row, auto-follows active file directory
+
 ### Basic workflow
 
 1. **Navigate to your working directory in Sublime Text**
