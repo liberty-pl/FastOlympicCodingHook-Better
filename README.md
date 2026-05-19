@@ -61,7 +61,7 @@ git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
 
 Open Preferences → Settings, then paste the config for your OS.
 
-> **Important:** `tests_file_suffix` must be set (e.g. `"__tests"`). Without it, test files may overwrite your source code.
+> **Important:** `tests_file_suffix` must be set (e.g. `"__tests"`).
 
 <details>
 <summary><b>Linux / macOS config</b></summary>
