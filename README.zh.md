@@ -142,6 +142,7 @@ int main() {
 
 | 变量 | 被替换成 |
 |------|----------|
+| `$(contest)` | 比赛名称，如 `Codeforces Round #1000` |
 | `$(url)` | 题目链接，如 `https://codeforces.com/problemset/problem/4/A` |
 | `$(name)` | 题目名称，如 `4A Watermelon` |
 | `$(id)` | 题目 ID，如 `4A` |

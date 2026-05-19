@@ -142,6 +142,7 @@ Available variables (replaced with real data when a file is created):
 
 | Variable | Replaced with |
 |----------|---------------|
+| `$(contest)` | Contest name, e.g. `Codeforces Round #1000` |
 | `$(url)` | Problem URL, e.g. `https://codeforces.com/problemset/problem/4/A` |
 | `$(name)` | Problem name, e.g. `4A Watermelon` |
 | `$(id)` | Problem ID, e.g. `4A` |

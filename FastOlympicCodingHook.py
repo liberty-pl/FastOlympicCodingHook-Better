@@ -40,6 +40,7 @@ def substitute_vars(content, data, prob_id):
         "url": data.get("url", ""),
         "name": data.get("name", ""),
         "id": prob_id,
+        "contest": data.get("group", ""),
         "time_limit": str(data.get("timeLimit", "")),
         "memory_limit": str(data.get("memoryLimit", "")),
         "date": now.strftime("%Y-%m-%d"),
