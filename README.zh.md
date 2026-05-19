@@ -186,14 +186,7 @@ int main() {
 
 ## 快捷键
 
-CppFastOlympicCoding 默认的运行快捷键是 `Ctrl+Alt+B`。如果你想用 `F5` 运行测试，打开 **Preferences → Key Bindings**，在右侧用户面板中粘贴：
-
-```json
-[
-    { "keys": ["f1"], "command": "fast_olympic_coding_hook" },
-    { "keys": ["f5"], "command": "view_tester", "args": { "action": "make_opd", "use_debugger": false } },
-]
-```
+CppFastOlympicCoding 默认的运行快捷键是 `Ctrl+Alt+B`。如果你想用 `F5` 运行测试，打开 `Packages/CppFastOlympicCoding/Default (Linux).sublime-keymap`（macOS 是 `Default (OSX).sublime-keymap`，Windows 是 `Default (Windows).sublime-keymap`），找到两处 `ctrl+alt+b` 替换为 `f5`。
 
 ---
 
