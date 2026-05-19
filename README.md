@@ -2,6 +2,8 @@
 
 Fork of [DrSwad/FastOlympicCodingHook](https://github.com/DrSwad/FastOlympicCodingHook) with auto-template, contest support, and variable substitution.
 
+[中文版说明](README.zh.md)
+
 ## Features
 
 - **Auto-start** on Sublime Text launch — no manual activation needed
@@ -19,17 +21,31 @@ Fork of [DrSwad/FastOlympicCodingHook](https://github.com/DrSwad/FastOlympicCodi
 
 ## Installation
 
+### Linux
 ```bash
 cd ~/.config/sublime-text/Packages/
 git clone https://github.com/YOUR_USERNAME/FastOlympicCodingHook.git
 ```
 
-Restart Sublime Text.
+### macOS
+```bash
+cd ~/Library/Application\ Support/Sublime\ Text/Packages/
+git clone https://github.com/YOUR_USERNAME/FastOlympicCodingHook.git
+```
+
+### Windows (PowerShell)
+```powershell
+cd "$env:APPDATA\Sublime Text\Packages"
+git clone https://github.com/YOUR_USERNAME/FastOlympicCodingHook.git
+```
+
+Restart Sublime Text after cloning.
 
 ## Configuration
 
-Create `Packages/User/FastOlympicCoding.sublime-settings`:
+Create `Packages/User/FastOlympicCoding.sublime-settings` with OS-appropriate settings:
 
+### Linux / macOS
 ```json
 {
 	"tests_relative_dir": "TESTCASE",
@@ -46,6 +62,26 @@ Create `Packages/User/FastOlympicCoding.sublime-settings`:
 	]
 }
 ```
+
+### Windows
+```json
+{
+	"tests_relative_dir": "TESTCASE",
+	"tests_file_suffix": "__tests",
+	"template_file": "C:\\Users\\yourname\\template.cpp",
+	"run_settings": [
+		{
+			"name": "C++",
+			"extensions": ["cpp"],
+			"compile_cmd": "g++ \"{source_file}\" -std=gnu++17 -o \"%TEMP%\\{file_name}.exe\"",
+			"run_cmd": "\"%TEMP%\\{file_name}.exe\" {args} -debug",
+			"lint_compile_cmd": "g++ -std=gnu++17 \"{source_file}\" -I \"{source_file_dir}\""
+		}
+	]
+}
+```
+
+> **Note:** `template_file` must point to an absolute path to your template file.
 
 ## Template
 

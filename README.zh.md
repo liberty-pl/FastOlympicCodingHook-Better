@@ -19,8 +19,21 @@
 
 ## 安装
 
+### Linux
 ```bash
 cd ~/.config/sublime-text/Packages/
+git clone https://github.com/你的用户名/FastOlympicCodingHook.git
+```
+
+### macOS
+```bash
+cd ~/Library/Application\ Support/Sublime\ Text/Packages/
+git clone https://github.com/你的用户名/FastOlympicCodingHook.git
+```
+
+### Windows (PowerShell)
+```powershell
+cd "$env:APPDATA\Sublime Text\Packages"
 git clone https://github.com/你的用户名/FastOlympicCodingHook.git
 ```
 
@@ -28,8 +41,9 @@ git clone https://github.com/你的用户名/FastOlympicCodingHook.git
 
 ## 配置
 
-创建 `Packages/User/FastOlympicCoding.sublime-settings`：
+创建 `Packages/User/FastOlympicCoding.sublime-settings`（根据系统选择对应配置）：
 
+### Linux / macOS
 ```json
 {
 	"tests_relative_dir": "TESTCASE",
@@ -46,6 +60,26 @@ git clone https://github.com/你的用户名/FastOlympicCodingHook.git
 	]
 }
 ```
+
+### Windows
+```json
+{
+	"tests_relative_dir": "TESTCASE",
+	"tests_file_suffix": "__tests",
+	"template_file": "C:\\Users\\你的用户名\\template.cpp",
+	"run_settings": [
+		{
+			"name": "C++",
+			"extensions": ["cpp"],
+			"compile_cmd": "g++ \"{source_file}\" -std=gnu++17 -o \"%TEMP%\\{file_name}.exe\"",
+			"run_cmd": "\"%TEMP%\\{file_name}.exe\" {args} -debug",
+			"lint_compile_cmd": "g++ -std=gnu++17 \"{source_file}\" -I \"{source_file_dir}\""
+		}
+	]
+}
+```
+
+> **注意:** `template_file` 必须填写绝对路径。
 
 ## 模板
 
