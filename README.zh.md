@@ -61,7 +61,7 @@ git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
 
 在顶部 **Preference** → **Settings** 中按需求配置：
 
-> **必须设置：** `tests_file_suffix` → `"__tests"`
+> **必须设置：** 在配置中加入 `"tests_file_suffix": "__tests"`
 
 <details>
 <summary><b>Linux / macOS 配置</b></summary>

@@ -61,7 +61,7 @@ git clone https://github.com/liberty-pl/FastOlympicCodingHook-Better.git
 
 Open Preferences → Settings, then paste the config for your OS.
 
-> **Required:** `tests_file_suffix` → `"__tests"`
+> **Required:** add `"tests_file_suffix": "__tests"` in your settings.
 
 <details>
 <summary><b>Linux / macOS config</b></summary>
