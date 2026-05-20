@@ -197,13 +197,13 @@ def run_server(context, port):
                 return
             _server_instance = httpd
             addr = httpd.server_address
-            print(f"FastOlympicCodingHook: Listening on {addr[0]}:{addr[1]}")
+            print("FastOlympicCodingHook: Listening on {}:{}".format(addr[0], addr[1]))
             httpd.serve_forever()
             break
         except OSError:
             if offset < 9:
                 continue
-            print(f"FastOlympicCodingHook: Could not bind any port from {port} to {port + 9}")
+            print("FastOlympicCodingHook: Could not bind any port from {} to {}".format(port, port + 9))
             _server_instance = None
             return
 
