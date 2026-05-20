@@ -74,13 +74,14 @@ def create_file_from_template(file_path, template_path, data, prob_id):
     if d and not path.exists(d):
         makedirs(d)
     if template_path and path.exists(template_path):
-        with open(template_path, "r") as f:
+        with open(template_path, "r", encoding="utf-8") as f:
             content = f.read()
         content = substitute_vars(content, data, prob_id)
-        with open(file_path, "w") as f:
+        with open(file_path, "w", encoding="utf-8") as f:
             f.write(content)
     else:
-        open(file_path, 'a').close()
+        with open(file_path, 'a'):
+            pass
 
 
 def open_file(p):
@@ -110,14 +111,16 @@ def start_server():
         return
 
     foc_settings = sublime.load_settings("FastOlympicCoding.sublime-settings")
+    hook_settings = sublime.load_settings("FastOlympicCodingHook.sublime-settings")
     context = {
         "template_file": foc_settings.get("template_file") or "",
         "tests_relative_dir": foc_settings.get("tests_relative_dir"),
         "tests_file_suffix": foc_settings.get("tests_file_suffix") or "__tests",
     }
+    port = int(hook_settings.get("port", 12345))
 
     _server_instance = "starting"
-    _thread.start_new_thread(run_server, (context,))
+    _thread.start_new_thread(run_server, (context, port))
 
 
 def stop_server():
@@ -130,63 +133,74 @@ def stop_server():
         _server_instance = None
 
 
-def run_server(context):
+def run_server(context, port):
     global _server_instance
     host = 'localhost'
-    port = 12345
     template_file = context["template_file"]
     tests_relative_dir = context["tests_relative_dir"]
     tests_file_suffix = context["tests_file_suffix"]
 
     class Handler(BaseHTTPRequestHandler):
         def do_POST(self):
-            global _current_base_dir
             try:
                 content_length = int(self.headers['Content-Length'])
                 body = self.rfile.read(content_length)
                 data = json.loads(body.decode('utf8'))
-                tests = data.get("tests", [])
 
-                base_dir = _current_base_dir
-                prob_id = extract_problem_id(data)
-                full_path = path.join(base_dir, prob_id + ".cpp")
-                file_name = path.basename(full_path)
-                test_dir = path.join(base_dir, tests_relative_dir) if tests_relative_dir else base_dir
-                nfilename = path.join(test_dir, file_name + tests_file_suffix)
+                self.send_response(200)
+                self.end_headers()
 
-                if path.exists(full_path) and path.exists(nfilename):
-                    print("Already exists: " + full_path)
-                else:
-                    if not path.exists(full_path):
-                        create_file_from_template(full_path, template_file, data, prob_id)
-
-                    ntests = []
-                    for test in tests:
-                        ntests.append({
-                            "test": test.get("input", ""),
-                            "correct_answers": [test.get("output", "").strip()]
-                        })
-
-                    if not path.exists(test_dir):
-                        makedirs(test_dir)
-                    with open(nfilename, "w") as f:
-                        f.write(json.dumps(ntests))
-
-                sublime.set_timeout(lambda p=full_path: open_file(p))
+                sublime.set_timeout(lambda d=data: _process_request(d))
             except Exception as e:
                 print("Error handling POST - " + str(e))
 
         def log_message(self, format, *args):
             pass
 
-    try:
-        httpd = HTTPServer((host, port), Handler)
-        _server_instance = httpd
-        httpd.serve_forever()
-    except Exception as e:
-        print("FastOlympicCodingHook: " + str(e))
-        _server_instance = None
-        return
+    def _process_request(data):
+        global _current_base_dir
+        tests = data.get("tests", [])
+        base_dir = _current_base_dir
+        prob_id = extract_problem_id(data)
+        full_path = path.join(base_dir, prob_id + ".cpp")
+        file_name = path.basename(full_path)
+        test_dir = path.join(base_dir, tests_relative_dir) if tests_relative_dir else base_dir
+        nfilename = path.join(test_dir, file_name + tests_file_suffix)
+
+        if path.exists(full_path) and path.exists(nfilename):
+            print("Already exists: " + full_path)
+        else:
+            if not path.exists(full_path):
+                create_file_from_template(full_path, template_file, data, prob_id)
+
+            ntests = []
+            for test in tests:
+                ntests.append({
+                    "test": test.get("input", ""),
+                    "correct_answers": [test.get("output", "").strip()]
+                })
+
+            if not path.exists(test_dir):
+                makedirs(test_dir)
+            with open(nfilename, "w", encoding="utf-8") as f:
+                f.write(json.dumps(ntests))
+
+        open_file(full_path)
+
+    for offset in range(10):
+        try:
+            httpd = HTTPServer((host, port + offset), Handler)
+            _server_instance = httpd
+            addr = httpd.server_address
+            print(f"FastOlympicCodingHook: Listening on {addr[0]}:{addr[1]}")
+            httpd.serve_forever()
+            break
+        except OSError:
+            if offset < 9:
+                continue
+            print(f"FastOlympicCodingHook: Could not bind any port from {port} to {port + 9}")
+            _server_instance = None
+            return
 
     _server_instance = None
     print("FastOlympicCodingHook: Server stopped")
@@ -201,7 +215,7 @@ class FastOlympicCodingHookCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         stop_server()
         start_server()
-        sublime.status_message("FastOlympicCodingHook: Listening on port 12345")
+        sublime.status_message("FastOlympicCodingHook: Restarted")
 
 
 class FastOlympicCodingHookStopCommand(sublime_plugin.ApplicationCommand):
@@ -216,7 +230,7 @@ def plugin_loaded():
             update_base_dir(window.active_view())
             break
     start_server()
-    sublime.status_message("FastOlympicCodingHook: Auto-listening on port 12345")
+    sublime.status_message("FastOlympicCodingHook: Auto-listening")
 
 
 def plugin_unloaded():
