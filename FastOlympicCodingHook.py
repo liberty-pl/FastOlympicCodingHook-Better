@@ -85,7 +85,8 @@ def create_file_from_template(file_path, template_path, data, prob_id):
 
 
 def open_file(p):
-    for window in sublime.windows():
+    window = sublime.active_window()
+    if window:
         window.open_file(p)
 
 
@@ -144,7 +145,7 @@ def run_server(context, port):
     class Handler(BaseHTTPRequestHandler):
         def do_POST(self):
             try:
-                content_length = int(self.headers['Content-Length'])
+                content_length = int(self.headers.get('Content-Length', 0))
                 body = self.rfile.read(content_length)
                 data = json.loads(body.decode('utf8'))
 
@@ -206,7 +207,8 @@ def run_server(context, port):
             _server_instance = None
             return
 
-    _server_instance = None
+    if _server_instance is httpd:
+        _server_instance = None
     print("FastOlympicCodingHook: Server stopped")
 
 
