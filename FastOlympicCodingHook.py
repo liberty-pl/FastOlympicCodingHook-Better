@@ -125,12 +125,13 @@ def start_server():
 
 def stop_server():
     global _server_instance
-    if _server_instance:
+    if isinstance(_server_instance, HTTPServer):
         try:
             _server_instance.shutdown()
         except:
             pass
-        _server_instance = None
+        _server_instance.server_close()
+    _server_instance = None
 
 
 def run_server(context, port):
@@ -183,13 +184,16 @@ def run_server(context, port):
             if not path.exists(test_dir):
                 makedirs(test_dir)
             with open(nfilename, "w", encoding="utf-8") as f:
-                f.write(json.dumps(ntests))
+                f.write(json.dumps(ntests, indent=4, ensure_ascii=False))
 
         open_file(full_path)
 
     for offset in range(10):
         try:
             httpd = HTTPServer((host, port + offset), Handler)
+            if _server_instance is None:
+                httpd.server_close()
+                return
             _server_instance = httpd
             addr = httpd.server_address
             print(f"FastOlympicCodingHook: Listening on {addr[0]}:{addr[1]}")
