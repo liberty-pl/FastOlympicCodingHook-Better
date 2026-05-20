@@ -63,9 +63,9 @@
         {
             "name": "C++",
             "extensions": ["cpp"],
-            "compile_cmd": "g++ '{source_file}' -std=g++17 -o \"/tmp/{file_name}\"",
+            "compile_cmd": "g++ '{source_file}' -std=c++17 -o \"/tmp/{file_name}\"",
             "run_cmd": "/tmp/\"{file_name}\" {args} -debug",
-            "lint_compile_cmd": "g++ -std=gnu++17 '{source_file}' -I '{source_file_dir}'"
+            "lint_compile_cmd": "g++ -std=c++17 '{source_file}' -I '{source_file_dir}'"
         }
     ]
 }
@@ -84,9 +84,9 @@
         {
             "name": "C++",
             "extensions": ["cpp"],
-            "compile_cmd": "g++ \"{source_file}\" -std=gnu++17 -o \"%TEMP%\\{file_name}.exe\"",
+            "compile_cmd": "g++ \"{source_file}\" -std=c++17 -o \"%TEMP%\\{file_name}.exe\"",
             "run_cmd": "\"%TEMP%\\{file_name}.exe\" {args} -debug",
-            "lint_compile_cmd": "g++ -std=gnu++17 \"{source_file}\" -I \"{source_file_dir}\""
+            "lint_compile_cmd": "g++ -std=c++17 \"{source_file}\" -I \"{source_file_dir}\""
         }
     ]
 }
