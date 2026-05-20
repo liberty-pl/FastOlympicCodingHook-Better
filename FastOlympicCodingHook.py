@@ -217,3 +217,7 @@ def plugin_loaded():
             break
     start_server()
     sublime.status_message("FastOlympicCodingHook: Auto-listening on port 12345")
+
+
+def plugin_unloaded():
+    stop_server()
