@@ -3,11 +3,11 @@ import sublime_plugin
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 import _thread
-import threading
 import re
 from os import path, makedirs
 
 _server_instance = None
+_server_stopping = False
 _current_base_dir = path.expanduser("~")
 
 
@@ -35,6 +35,10 @@ def extract_problem_id(data):
     m = re.match(r'^(\d+[A-Za-z]?)', name)
     if m:
         return m.group(1)
+
+    m = re.search(r'/problemset/problem/\d+/([A-Z]\d*)', url)
+    if m and contest_id:
+        return contest_id + m.group(1)
 
     m = re.search(r'/problem/([A-Z]\d*)', url)
     if m:
@@ -121,11 +125,13 @@ def start_server():
     port = int(hook_settings.get("port", 12345))
 
     _server_instance = "starting"
+    _server_stopping = False
     _thread.start_new_thread(run_server, (context, port))
 
 
 def stop_server():
-    global _server_instance
+    global _server_instance, _server_stopping
+    _server_stopping = True
     if isinstance(_server_instance, HTTPServer):
         try:
             _server_instance.shutdown()
@@ -155,6 +161,11 @@ def run_server(context, port):
                 sublime.set_timeout(lambda d=data: _process_request(d))
             except Exception as e:
                 print("Error handling POST - " + str(e))
+                try:
+                    self.send_response(400)
+                    self.end_headers()
+                except:
+                    pass
 
         def log_message(self, format, *args):
             pass
@@ -192,10 +203,14 @@ def run_server(context, port):
     for offset in range(10):
         try:
             httpd = HTTPServer((host, port + offset), Handler)
-            if _server_instance is None:
+            if _server_instance is None or _server_stopping:
                 httpd.server_close()
                 return
             _server_instance = httpd
+            if _server_stopping:
+                httpd.server_close()
+                _server_instance = None
+                return
             addr = httpd.server_address
             print("FastOlympicCodingHook: Listening on {}:{}".format(addr[0], addr[1]))
             httpd.serve_forever()

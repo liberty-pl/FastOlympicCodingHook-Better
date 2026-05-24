@@ -15,6 +15,8 @@
 | **CppFastOlympicCoding** | Sublime 插件，用来管理和运行测试 |
 | **Competitive Companion** | 浏览器扩展，负责从题目页面抓取数据 |
 
+> **注意：** 目前仅支持 C++（`.cpp`），后续可能增加其他语言的支持。
+
 ### 安装 CppFastOlympicCoding
 
 在 Sublime Text 中：
@@ -175,12 +177,6 @@ int main() {
 ### 重复获取同一道题
 
 如果文件和样例已经存在，插件会直接打开已有文件，不会覆盖你的代码和测试数据。
-
-### 停止服务器
-
-插件在 Sublime 启动时自动在后台监听。如需停止：
-
-`Ctrl+Shift+P` → `FastOlympicCodingHook: Stop`
 
 ---
 

@@ -15,6 +15,8 @@ English | [简体中文](README.zh.md)
 | **CppFastOlympicCoding** | Sublime plugin for running tests |
 | **Competitive Companion** | Browser extension that scrapes problem data |
 
+> **Note:** Currently only C++ (`.cpp`) is supported. Support for other languages may be added in the future.
+
 ### Install CppFastOlympicCoding
 
 In Sublime Text:
@@ -175,12 +177,6 @@ Open the contest page, then click the extension for each problem. Files are crea
 ### Re-fetching the same problem
 
 If both the `.cpp` file and test file already exist, the plugin opens the existing file without overwriting anything.
-
-### Stop the server
-
-The plugin starts listening automatically when Sublime Text launches. To stop it:
-
-`Ctrl+Shift+P` → `FastOlympicCodingHook: Stop`
 
 ---
 
